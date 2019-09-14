@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="nav-item dropdown">
+          <!-- NB : routerLinkActive "active" is a Bootstrap css class -->
+          <a class="nav-link dropdown-toggle" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            data-toggle="dropdown" href="#">Data binding
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/interpolation">Interpolation</a>
+            <a class="dropdown-item" routerLink="/propertybinding">Property binding</a>
+            <a class="dropdown-item" routerLink="/twoway">Two-way binding</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <!-- NB : routerLinkActive "active" is a Bootstrap css class -->
+            <a class="nav-link dropdown-toggle" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+              data-toggle="dropdown" href="#">Components
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/dynamiccomponent">Dynamic</a>
+              <a class="dropdown-item" routerLink="/io">Input/Output</a>
+            </div>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" href="#">Active
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" href="#">Link
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">&nbsp;</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

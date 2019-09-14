@@ -1,0 +1,22 @@
+<!-- change some style with property binding - with a button -->
+<button class="btn btn-primary" (click)="onClick()">Toggle</button>
+<div><label>Toggle disabled text</label></div>
+<p>property binding is to DOM properties - NOTE html attributes</p>
+<p>doc is <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"
+  [target]="'_blank'">here</a></p>
+<input class="form-control" [disabled]="isDisabled">
+<hr>
+<div class="row">
+  <div class="bg-danger" ngClass="col-md-8">
+    <p >ngClass col-md-8</p>
+  </div>
+  <div class="bg-light" ngClass="col-md-4">
+      <p>ngClass col-md-4</p>
+    </div>
+</div>
+<hr>
+<button class="btn btn-primary" (click)="onClickChangeClass()">Replace class</button>
+<div class="bg-light" [attr.class]="[[ bgColor ]]">Reset all classes at once</div>
+<hr>
+<button class="btn btn-primary" (click)="onClickAddClass()">Add class</button>
+<div class="bg-danger" [ngClass]="cssClass">Add a class with ngClass</div>
