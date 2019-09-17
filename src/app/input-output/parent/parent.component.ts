@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent implements OnInit {
+  private toChild2 = '';
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onOut(arg: string) {
+    this.toChild2 = arg;
+    // TODO ibn: and now with a service
+  }
 }

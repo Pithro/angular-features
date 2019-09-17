@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./two-way.component.css']
 })
 export class TwoWayComponent implements OnInit {
+  username: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.username = 'This is one way - setting it';
   }
-
 }

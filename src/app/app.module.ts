@@ -14,6 +14,11 @@ import { InputOutputComponent } from './input-output/input-output.component';
 import { ParentComponent } from './input-output/parent/parent.component';
 import { Child1Component } from './input-output/child1/child1.component';
 import { Child2Component } from './input-output/child2/child2.component';
+import { ChildService1Component } from './input-output/child-service1/child-service1.component';
+import { ChildService2Component } from './input-output/child-service2/child-service2.component';
+import { NgModelComponent } from './ng-model/ng-model.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormComponent } from './ng-model/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +33,18 @@ import { Child2Component } from './input-output/child2/child2.component';
     InputOutputComponent,
     ParentComponent,
     Child1Component,
-    Child2Component
+    Child2Component,
+    ChildService1Component,
+    ChildService2Component,
+    NgModelComponent,
+    ReactiveFormComponent
   ],
   entryComponents: [Comp1Component, Comp2Component],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

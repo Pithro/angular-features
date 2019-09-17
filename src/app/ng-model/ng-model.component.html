@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-md-6">
+    <h3>Template driven form</h3>
+    <hr>
+    <!-- angular magic -->
+    <form (ngSubmit)="onSubmit(myformref)" #myformref="ngForm">
+      <!-- a ngModelGroup to make structure to the javascript object -->
+      <div id="group-1" ngModelGroup="group1">
+        <div class="row" style="padding: 10px;">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>text</label>
+              <input type="text" class="form-control" [(ngModel)]="theEnteredText" name="someText" required>
+              <!-- Two way binding example -->
+              <p>The entered text: {{theEnteredText}}</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>email</label>
+              <input
+                type="text"
+                class="form-control"
+                ngModel name="someEmail"
+                required
+                email
+                #emailref="ngModel">
+              <!-- above : email is a build in validator. -->
+              <!-- above : #email is localref to ngModel. NOT ngForm -->
+              <span *ngIf="!emailref.valid && emailref.touched"
+                    class="form-text text-muted">Please enter valid email</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="padding: 10px;">
+        <div class="col-md-6">
+          <!-- one way property binding -->
+          <select id="dd" class="form-control" [ngModel]="defaultValg" name="dropdown">
+            <option value="valg1">Valg 1</option>
+            <option value="valg2" selected>Valg 2</option>
+            <option value="valg3">Valg 3</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" ngModel name="checkbx">
+            <label class="form-check-label" for="defaultCheck1">
+              Default checkbox
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- radio buttons -->
+      <div class="radio" *ngFor="let animal of animals">
+        <label>
+          <!-- make javascript object with ngModel -->
+          <!-- property binding to set default value - one way binding -->
+          <!-- interpolation -->
+          <input
+            type="radio"
+            name="animal-name"
+            [ngModel]="radioSelected"
+            [value]="animal.specie">
+          {{animal.specie}}
+        </label>
+
+      </div>
+      <!-- property binding with reference to localref -->
+      <div class="row">
+        <div class="col-md-12">
+          <input type="submit" class="form-control btn btn-primary" value="Submit" [disabled]="!myformref.valid">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <input type="button" class="form-control btn btn-info" value="Reset" (click)="resetForm(myformref)">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <app-reactive-form></app-reactive-form>
+    <hr>
+  </div>
+</div>
+

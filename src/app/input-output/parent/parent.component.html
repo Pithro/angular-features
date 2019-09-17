@@ -1,2 +1,5 @@
-<app-child1></app-child1>
-<app-child2></app-child2>
+<app-child1 (child1Changed)="onOut($event)"></app-child1>
+<app-child2 thisIsGoingIn="{{toChild2}}"></app-child2>
+<hr>
+<app-child-service1></app-child-service1>
+<app-child-service2></app-child-service2>

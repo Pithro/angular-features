@@ -1,0 +1,8 @@
+/*
+these is set by the angular framework on elements.
+and this css expression says:
+make a border on input controls that has css class ng-invalid and ng-touched
+ */
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

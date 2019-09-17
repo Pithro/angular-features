@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-child2',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./child2.component.css']
 })
 export class Child2Component implements OnInit {
+  @Input() thisIsGoingIn: string = 'from child2';
 
   constructor() { }
 
