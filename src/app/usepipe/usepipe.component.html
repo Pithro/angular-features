@@ -1,0 +1,10 @@
+<div class="form-text">
+  <h3>Use of pipes</h3>
+  <hr>
+  <p>Custom pipe 1</p>
+  <input type="input" maxlength="30" class="form-control" (input)="onTextInput($event)">
+  <p>{{myText | shorten:5}} </p>
+  <hr>
+  <br>
+  <p>Async text in 2 secs : {{myPromise | async}}</p>
+</div>

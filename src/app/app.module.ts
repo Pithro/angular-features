@@ -19,6 +19,8 @@ import { ChildService2Component } from './input-output/child-service2/child-serv
 import { NgModelComponent } from './ng-model/ng-model.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReactiveFormComponent } from './ng-model/reactive-form/reactive-form.component';
+import { ShortenPipe } from './shared/pipes/shorten.pipe';
+import { UsepipeComponent } from './usepipe/usepipe.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ReactiveFormComponent } from './ng-model/reactive-form/reactive-form.co
     ChildService1Component,
     ChildService2Component,
     NgModelComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ShortenPipe,
+    UsepipeComponent,
   ],
   entryComponents: [Comp1Component, Comp2Component],
   imports: [

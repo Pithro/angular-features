@@ -6,6 +6,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 import { TwoWayComponent } from './two-way/two-way.component';
 import {InputOutputComponent} from './input-output/input-output.component';
 import {NgModelComponent} from './ng-model/ng-model.component';
+import {UsepipeComponent} from './usepipe/usepipe.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'dynamiccomponent', component: DynamicComponent},
   {path: 'io', component: InputOutputComponent},
   {path: 'forms', component: NgModelComponent},
+  {path: 'pipes', component: UsepipeComponent},
   {path: '', component: InterpolationComponent},
 ]
 @NgModule({

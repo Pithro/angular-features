@@ -1,1 +1,69 @@
-<p>reactive-form works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Reactive form</h3>
+    <hr>
+    <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
+      <div class="row" style="padding: 10px;">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Userid</label>
+            <!-- two different ways of binding -->
+            <input type="text"
+                   class="form-control"
+                   name="userid"
+                   [formControlName]="'userid'"
+                   required>
+            <span *ngIf="!myFormGroup.get('userid').valid && myFormGroup.get('userid').touched "
+                  class="form-text text-muted">Please enter something</span>
+            <label>Phonenumber</label>
+            <input type="text"
+                   class="form-control"
+                   name="phonenumber"
+                   formControlName="phonenumber"
+                   required>
+            <!-- get methods used here -->
+            <span *ngIf="phonenumber.invalid && phonenumber.touched"
+                  class="form-text text-muted">Please enter valid phonenumber</span>
+            <span *ngIf="phonenumber.invalid && phonenumber.errors.invalidNumber && phonenumber.touched"
+                  class="form-text text-muted">Value has to be a number.</span>
+          </div>
+          <div formGroupName="userData">
+            <label>Formgroup control 1</label>
+            <input type="text"
+                   class="form-control"
+                   name="fg1"
+                   formControlName="fg1">
+            <!-- path to fg1 it is through userData -->
+            <span *ngIf="!myFormGroup.get('userData.fg1').valid && myFormGroup.get('userData.fg1').touched "
+                  class="form-text text-muted">Please enter something</span>
+            <label>Formgroup control 2</label>
+            <input type="text"
+                   class="form-control"
+                   name="fg2"
+                   formControlName="fg2">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div formArrayName="newControl">
+            <!-- dynamicly add controls -->
+            <button class="btn btn-primary" type="button" (click)="onNewControl()">Add new control</button>
+            <div class="form-group"
+                 *ngFor="let myControl of this.myFormGroup.get('newControl').controls; let i=index">
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- på hele formen -->
+          <span *ngIf="!myFormGroup.valid && myFormGroup.touched "
+                class="form-text text-muted">Please enter valid data</span>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
