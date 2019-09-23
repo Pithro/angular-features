@@ -25,6 +25,15 @@
               <a class="dropdown-item" routerLink="/pipes">Using pipes</a>
             </div>
           </li>
+        <li class="nav-item dropdown">
+          <!-- NB : routerLinkActive "active" is a Bootstrap css class -->
+          <a class="nav-link dropdown-toggle" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+             data-toggle="dropdown" href="#">Misc
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/http">Http</a>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" href="#">Active
           </a>

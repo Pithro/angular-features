@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { InterpolationComponent } from './interpolation/interpolation.component';
-import { PropertyBindingComponent } from './property-binding/property-binding.component';
-import { DynamicComponent } from './dynamic/dynamic.component';
-import { TwoWayComponent } from './two-way/two-way.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {InterpolationComponent} from './interpolation/interpolation.component';
+import {PropertyBindingComponent} from './property-binding/property-binding.component';
+import {DynamicComponent} from './dynamic/dynamic.component';
+import {TwoWayComponent} from './two-way/two-way.component';
 import {InputOutputComponent} from './input-output/input-output.component';
 import {NgModelComponent} from './ng-model/ng-model.component';
 import {UsepipeComponent} from './usepipe/usepipe.component';
+import {HttpComponent} from './http/http.component';
 
 
 const routes: Routes = [
@@ -17,10 +18,13 @@ const routes: Routes = [
   {path: 'io', component: InputOutputComponent},
   {path: 'forms', component: NgModelComponent},
   {path: 'pipes', component: UsepipeComponent},
+  {path: 'http', component: HttpComponent},
   {path: '', component: InterpolationComponent},
-]
+];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

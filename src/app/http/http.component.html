@@ -1,0 +1,14 @@
+<input class="form-control" type="input" #navn>
+<button class="btn btn-primary" type="button" (click)="onAddPerson(navn.value)">Add person</button>
+<br><br>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-primary" type="button" (click)="onGetPeople()">Get - use model</button>
+  </div>
+</div>
+<br><br>
+<ul class="list-group">
+  <li *ngFor="let p of modelPeople" class="list-group-item">
+    {{ p.name }} {{ p.age }} {{ p.gender }}
+  </li>
+</ul>
