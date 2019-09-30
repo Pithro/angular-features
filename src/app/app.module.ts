@@ -25,6 +25,8 @@ import {HttpComponent} from './http/http.component';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './shared/in-memory-data.service';
+import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
+import { BetterBasicHighlightDirective } from './shared/directives/better-basic-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import {InMemoryDataService} from './shared/in-memory-data.service';
     ShortenPipe,
     UsepipeComponent,
     HttpComponent,
+    BasicHighlightDirective,
+    BetterBasicHighlightDirective,
   ],
   entryComponents: [Comp1Component, Comp2Component],
   imports: [
