@@ -8,7 +8,10 @@ import {InputOutputComponent} from './input-output/input-output.component';
 import {NgModelComponent} from './ng-model/ng-model.component';
 import {UsepipeComponent} from './usepipe/usepipe.component';
 import {HttpComponent} from './http/http.component';
-
+import {PrimengComponent} from './primeng/primeng.component';
+import {NgTemplateFunComponent} from './ng-template-fun/ng-template-fun.component';
+import {ContentChildComponent} from './content-child/content-child.component';
+import {DynamicGridComponent} from './nih/dynamic-grid/dynamic-grid.component';
 
 const routes: Routes = [
   {path: 'interpolation', component: InterpolationComponent},
@@ -19,6 +22,10 @@ const routes: Routes = [
   {path: 'forms', component: NgModelComponent},
   {path: 'pipes', component: UsepipeComponent},
   {path: 'http', component: HttpComponent},
+  {path: 'primefirst', component: PrimengComponent},
+  {path: 'ngtemplatefun', component: NgTemplateFunComponent},
+  {path: 'contentchild', component: ContentChildComponent},
+  {path: 'dynamicgrid', component: DynamicGridComponent},
   {path: '', component: InterpolationComponent},
 ];
 

@@ -27,6 +27,21 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './shared/in-memory-data.service';
 import { BasicHighlightDirective } from './shared/directives/basic-highlight.directive';
 import { BetterBasicHighlightDirective } from './shared/directives/better-basic-highlight.directive';
+import { FirstPrimeComponent } from './primeng/first-prime/first-prime.component';
+import {ToastModule} from 'primeng/toast';
+import {PanelModule} from 'primeng/panel';
+import {SplitButtonModule} from 'primeng/primeng';
+import { PrimengComponent } from './primeng/primeng.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { NgTemplateFunComponent } from './ng-template-fun/ng-template-fun.component';
+import {TableModule} from 'primeng/table';
+import { PtableComponent } from './ng-template-fun/ptable/ptable.component';
+import {ContentChildComponent, Pane, Tab} from './content-child/content-child.component';
+import {DynamicGridComponent} from './nih/dynamic-grid/dynamic-grid.component';
+import { ContainerComponent } from './nih/dynamic-grid/container/container.component';
+import { ItemComponent } from './nih/dynamic-grid/container/item/item.component';
+import { IncrementDecrementComponent } from './nih/dynamic-grid/increment-decrement/increment-decrement.component';
+import { ConnectorDirective } from './nih/dynamic-grid/container/connector.directive';
 
 @NgModule({
   declarations: [
@@ -51,6 +66,18 @@ import { BetterBasicHighlightDirective } from './shared/directives/better-basic-
     HttpComponent,
     BasicHighlightDirective,
     BetterBasicHighlightDirective,
+    FirstPrimeComponent,
+    PrimengComponent,
+    NgTemplateFunComponent,
+    PtableComponent,
+    ContentChildComponent,
+    Tab,
+    Pane,
+    DynamicGridComponent,
+    ContainerComponent,
+    ItemComponent,
+    IncrementDecrementComponent,
+    ConnectorDirective,
   ],
   entryComponents: [Comp1Component, Comp2Component],
   imports: [
@@ -58,13 +85,18 @@ import { BetterBasicHighlightDirective } from './shared/directives/better-basic-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService
     ),
-    AppRoutingModule
+    AppRoutingModule,
+    ToastModule,
+    PanelModule,
+    SplitButtonModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

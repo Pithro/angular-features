@@ -1,0 +1,75 @@
+<h3>Static table</h3>
+<p-table [value]="cars">
+  <ng-template pTemplate="header" let-header>
+    <tr>
+      <th>Vin</th>
+      <th>Year</th>
+      <th>Brand</th>
+      <th>Color</th>
+    </tr>
+  </ng-template>
+  <!-- let-car er iterator over "cars" property binding længere oppe i p-table definition -->
+  <ng-template pTemplate="body" let-car>
+    <tr>
+      <td>{{car.vin}}</td>
+      <td>{{car.year}}</td>
+      <td>{{car.model}}</td>
+      <td>{{car.color}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<hr/>
+
+<!-- se https://angular.io/guide/structural-directives#!#template-input-variable -->
+<!-- template input variable let-abc og IKKE template reference variable #abc -->
+<!-- dette her omkring microsyntax er lidt langhåret. Bare vid det er her og undersøg når nødvendigt -->
+<h3>Play with ng-template</h3>
+<!-- declaration -->
+<ng-template #template let-default let-key2="key2" let-key3="key3">
+  {{default}}
+  {{key2}}
+  {{key3}}
+</ng-template>
+
+<!-- instantiering -->
+
+<ng-template [ngTemplateOutlet]="template"
+             [ngTemplateOutletContext]="{$implicit: 'Hello', key2: 'value2', key3: 'value3'}"></ng-template>
+
+<hr/>
+<h3>Dynamic table</h3>
+
+<!-- [columns] er $implicit på p-table, men jeg har lavet den eksplicit (property binding) for eksemplets skyld -->
+<p-table [columns]="cols" [value]="cars">
+  <!-- let-col er $implicit og binder derfor for pTemplate header til cols -->
+  <ng-template pTemplate="header" let-col>
+    <tr>
+      <th *ngFor="let c of col" [style.width.px]="c.w">
+        {{c.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <!-- let-car er $implicit og binder sig til [value] på p-table. let-c binder sig til [columns] på p-table -->
+  <!-- let-r binder sig til rowIndex parameter fra body pTemplate - se tabellen https://www.primefaces.org/primeng/#/table -->
+  <ng-template pTemplate="body" let-car let-c="columns" let-r="rowIndex">
+    <tr>
+      <td *ngFor="let col of c">
+        {{car[col.field]}} rowIndex is {{r}}
+      </td>
+    </tr>
+  </ng-template>
+  <!-- let-foot binder sig til implicit, som er columns (fra p-table) for footer pTemplate -->
+  <ng-template pTemplate="footer" let-foot>
+    <tr>
+      <th *ngFor="let colx of foot">
+        {{colx.foot}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    There are {{fem?.length}} cars
+  </ng-template>
+</p-table>
+
+

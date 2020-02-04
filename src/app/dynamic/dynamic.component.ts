@@ -21,18 +21,18 @@ export class DynamicComponent implements OnInit {
     this.loadComponent();
   }
 
-  private loadComponent() : void {
+  private loadComponent(): void {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.comps[this.i]);
     const viewContainerRef = this.adHost.viewContainerRef;
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
     // componentRef.setIndex(this.i);
-    (<Comp>componentRef.instance).index = this.i;
+    (componentRef.instance as Comp).index = this.i;
   }
 
   onNext(): void {
-    if(this.i == 0) {
+    if (this.i === 0) {
       this.i++;
     } else {
       this.i--;
