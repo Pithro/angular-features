@@ -7,4 +7,9 @@
   <hr>
   <br>
   <p>Async text in 2 secs : {{myPromise | async}}</p>
+  <br>
+  <br>
+  <p>Prefix pipe</p>
+  <input type="input" maxlength="30" class="form-control" (input)="onPrefixInput($event)">
+  <p>{{'Prefix Me' | prefix:myPrefix}} </p>
 </div>

@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UsepipeComponent implements OnInit {
   myText: string;
+  myPrefix: string;
 
   // async pipe
   myPromise = new Promise((resolve, reject) => {
@@ -23,5 +24,9 @@ export class UsepipeComponent implements OnInit {
 
   onTextInput(event: any) {
     this.myText = event.target.value;
+  }
+
+  onPrefixInput(event: any) {
+    this.myPrefix = event.target.value;
   }
 }

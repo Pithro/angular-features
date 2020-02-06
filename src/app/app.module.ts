@@ -42,6 +42,7 @@ import { ContainerComponent } from './nih/dynamic-grid/container/container.compo
 import { ItemComponent } from './nih/dynamic-grid/container/item/item.component';
 import { IncrementDecrementComponent } from './nih/dynamic-grid/increment-decrement/increment-decrement.component';
 import { ConnectorDirective } from './nih/dynamic-grid/container/connector.directive';
+import { PrefixPipe } from './shared/pipes/prefix.pipe';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { ConnectorDirective } from './nih/dynamic-grid/container/connector.direc
     ItemComponent,
     IncrementDecrementComponent,
     ConnectorDirective,
+    PrefixPipe,
   ],
   entryComponents: [Comp1Component, Comp2Component],
   imports: [
