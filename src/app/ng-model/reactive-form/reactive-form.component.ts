@@ -15,13 +15,13 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit() {
     this.myFormGroup = new FormGroup({
-      'userid': new FormControl(null, [Validators.required, Validators.email]),
-      'phonenumber': new FormControl(null, [Validators.required, phoneNumberValidator]),
-      'userData': new FormGroup({
-        'fg1': new FormControl(null, Validators.required),
-        'fg2': new FormControl(null)
+      userid: new FormControl(null, [Validators.required, Validators.email]),
+      phonenumber: new FormControl(null, [Validators.required, phoneNumberValidator]),
+      userData: new FormGroup({
+        fg1: new FormControl(null, Validators.required),
+        fg2: new FormControl(null)
       }),
-      'newControl': new FormArray([])
+      newControl: new FormArray([])
     });
   }
 
@@ -36,5 +36,9 @@ export class ReactiveFormComponent implements OnInit {
 
   get phonenumber() {
     return this.myFormGroup.get('phonenumber');
+  }
+
+  getControls() {
+    return (this.myFormGroup.get('newControl') as FormArray).controls;
   }
 }

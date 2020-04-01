@@ -8,7 +8,7 @@ import {NgForm} from '@angular/forms';
 })
 export class NgModelComponent implements OnInit {
   // alternative approach
-  @ViewChild('myformref', null) myformref: NgForm;
+  @ViewChild('myformref') myformref: NgForm;
   defaultValg = 'valg1';
   theEnteredText: string;
 

@@ -34,7 +34,7 @@
                    name="fg1"
                    formControlName="fg1">
             <!-- path to fg1 it is through userData -->
-            <span *ngIf="!myFormGroup.get('userData.fg1').valid && myFormGroup.get('userData.fg1').touched "
+            <span *ngIf="!myFormGroup.get('userData').get('fg1').valid && myFormGroup.get('userData').get('fg1').touched "
                   class="form-text text-muted">Please enter something</span>
             <label>Formgroup control 2</label>
             <input type="text"
@@ -50,7 +50,7 @@
             <!-- dynamicly add controls -->
             <button class="btn btn-primary" type="button" (click)="onNewControl()">Add new control</button>
             <div class="form-group"
-                 *ngFor="let myControl of this.myFormGroup.get('newControl').controls; let i=index">
+                 *ngFor="let myControl of getControls(); let i=index">
               <input type="text" class="form-control" [formControlName]="i">
             </div>
           </div>

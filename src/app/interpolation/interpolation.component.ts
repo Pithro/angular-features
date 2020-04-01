@@ -13,7 +13,7 @@ export class InterpolationComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onTextInput(event: any) {
+  onTextInput(event: any) {
     this.showIt = event.target.value;
   }
 

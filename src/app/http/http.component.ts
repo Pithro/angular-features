@@ -12,7 +12,7 @@ import {PersonModel} from '../shared/model/person.model';
 // in memory db
 
 export class HttpComponent implements OnInit, OnDestroy {
-  private modelPeople: PersonModel[] = [];
+  modelPeople: PersonModel[] = [];
 
   // TODO ibn : will this work? - I  potentially subscripe multiple times and overwrite the variable, but unsubscribes once
   private postsub: Subscription;

@@ -9,7 +9,7 @@ export class PropertyBindingComponent implements OnInit {
   myStyle = 'btn-primary';
   isDisabled = true;
   bgColor: string;
-  private cssClass: string = '';
+  cssClass: string = '';
 
   constructor() { }
 

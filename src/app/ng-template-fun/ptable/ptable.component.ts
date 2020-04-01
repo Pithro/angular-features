@@ -8,10 +8,10 @@ import {CarService} from './car.service';
   styleUrls: ['./ptable.component.css']
 })
 export class PtableComponent implements OnInit {
-  private cars: Car[];
-  private cols: any[];
-  private foot: any[];
-  private fem = '500px';
+  cars: Car[];
+  cols: any[];
+  foot: any[];
+  fem = '500px';
 
   constructor(private carService: CarService) {
   }

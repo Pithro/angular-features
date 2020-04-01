@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./child-service2.component.css']
 })
 export class ChildService2Component implements OnInit, OnDestroy {
-  private text = '';
+  text = '';
   private sub: Subscription;
 
   constructor(private comService: ServiceAsCommunicatorService) { }

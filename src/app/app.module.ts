@@ -30,7 +30,7 @@ import { BetterBasicHighlightDirective } from './shared/directives/better-basic-
 import { FirstPrimeComponent } from './primeng/first-prime/first-prime.component';
 import {ToastModule} from 'primeng/toast';
 import {PanelModule} from 'primeng/panel';
-import {SplitButtonModule} from 'primeng/primeng';
+import {SplitButtonModule} from 'primeng/SplitButton';
 import { PrimengComponent } from './primeng/primeng.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgTemplateFunComponent } from './ng-template-fun/ng-template-fun.component';
