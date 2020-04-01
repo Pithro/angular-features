@@ -16,7 +16,7 @@ export class Pane {
 })
 // tslint:disable-next-line:component-class-suffix
 export class Tab {
-  @ContentChild(Pane, {static: false}) pane !: Pane;
+  @ContentChild(Pane) pane !: Pane;
 }
 
 @Component({
