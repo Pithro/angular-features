@@ -12,6 +12,7 @@ import {PrimengComponent} from './primeng/primeng.component';
 import {NgTemplateFunComponent} from './ng-template-fun/ng-template-fun.component';
 import {ContentChildComponent} from './content-child/content-child.component';
 import {DynamicGridComponent} from './nih/dynamic-grid/dynamic-grid.component';
+import {PrintParentComponent} from './input-output/print-and-component-communication/print-parent/print-parent.component';
 
 const routes: Routes = [
   {path: 'interpolation', component: InterpolationComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'ngtemplatefun', component: NgTemplateFunComponent},
   {path: 'contentchild', component: ContentChildComponent},
   {path: 'dynamicgrid', component: DynamicGridComponent},
+  {path: 'print', component: PrintParentComponent},
   {path: '', component: InterpolationComponent},
 ];
 

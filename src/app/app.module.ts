@@ -30,7 +30,7 @@ import { BetterBasicHighlightDirective } from './shared/directives/better-basic-
 import { FirstPrimeComponent } from './primeng/first-prime/first-prime.component';
 import {ToastModule} from 'primeng/toast';
 import {PanelModule} from 'primeng/panel';
-import {SplitButtonModule} from 'primeng/SplitButton';
+import {SplitButtonModule} from 'primeng/splitButton';
 import { PrimengComponent } from './primeng/primeng.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgTemplateFunComponent } from './ng-template-fun/ng-template-fun.component';
@@ -43,6 +43,12 @@ import { ItemComponent } from './nih/dynamic-grid/container/item/item.component'
 import { IncrementDecrementComponent } from './nih/dynamic-grid/increment-decrement/increment-decrement.component';
 import { ConnectorDirective } from './nih/dynamic-grid/container/connector.directive';
 import { PrefixPipe } from './shared/pipes/prefix.pipe';
+import { PrintComponent } from './input-output/print-and-component-communication/print/print.component';
+// tslint:disable-next-line:max-line-length
+import { PrintTargetTableComponent } from './input-output/print-and-component-communication/print-target-table/print-target-table.component';
+import { PrintParentComponent } from './input-output/print-and-component-communication/print-parent/print-parent.component';
+import {DialogModule} from 'primeng/dialog';
+import { PrintPopupComponent } from './input-output/print-and-component-communication/print-popup/print-popup.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +86,10 @@ import { PrefixPipe } from './shared/pipes/prefix.pipe';
     IncrementDecrementComponent,
     ConnectorDirective,
     PrefixPipe,
+    PrintComponent,
+    PrintTargetTableComponent,
+    PrintParentComponent,
+    PrintPopupComponent,
   ],
   entryComponents: [Comp1Component, Comp2Component],
   imports: [
@@ -98,7 +108,8 @@ import { PrefixPipe } from './shared/pipes/prefix.pipe';
     ToastModule,
     PanelModule,
     SplitButtonModule,
-    TableModule
+    TableModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
