@@ -30,7 +30,7 @@ import { BetterBasicHighlightDirective } from './shared/directives/better-basic-
 import { FirstPrimeComponent } from './primeng/first-prime/first-prime.component';
 import {ToastModule} from 'primeng/toast';
 import {PanelModule} from 'primeng/panel';
-import {SplitButtonModule} from 'primeng/splitButton';
+import {SplitButtonModule} from 'primeng/splitbutton';
 import { PrimengComponent } from './primeng/primeng.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgTemplateFunComponent } from './ng-template-fun/ng-template-fun.component';
@@ -49,6 +49,10 @@ import { PrintTargetTableComponent } from './input-output/print-and-component-co
 import { PrintParentComponent } from './input-output/print-and-component-communication/print-parent/print-parent.component';
 import {DialogModule} from 'primeng/dialog';
 import { PrintPopupComponent } from './input-output/print-and-component-communication/print-popup/print-popup.component';
+// tslint:disable-next-line:max-line-length
+import { PrintSourceTableComponent } from './input-output/print-and-component-communication/print-source-table/print-source-table.component';
+import {NgxPrintModule} from 'ngx-print';
+import {CalendarModule} from 'primeng';
 
 @NgModule({
   declarations: [
@@ -90,27 +94,30 @@ import { PrintPopupComponent } from './input-output/print-and-component-communic
     PrintTargetTableComponent,
     PrintParentComponent,
     PrintPopupComponent,
+    PrintSourceTableComponent,
   ],
   entryComponents: [Comp1Component, Comp2Component],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService
-    ),
-    AppRoutingModule,
-    ToastModule,
-    PanelModule,
-    SplitButtonModule,
-    TableModule,
-    DialogModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService
+        ),
+        AppRoutingModule,
+        ToastModule,
+        PanelModule,
+        SplitButtonModule,
+        TableModule,
+        DialogModule,
+        NgxPrintModule,
+        CalendarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

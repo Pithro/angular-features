@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PrintService} from '../print.service';
 import {DialogModule} from 'primeng/dialog';
 
@@ -9,39 +9,35 @@ import {DialogModule} from 'primeng/dialog';
 })
 export class PrintComponent implements OnInit {
 
-  constructor(public printService: PrintService) { }
-
-  display: boolean = false;
+  constructor(public printService: PrintService) {
+  }
 
   ngOnInit(): void {
   }
 
   handleClick($event: any) {
     console.log('Print button clicked');
-    // start med lokal print og deleger senere
-    // this.print();
-    // this.display = true;
-    window.print(); // It works !!
+    this.printService.startPrintProcess();
+
+    // TODO ibn : afvent afslutning af processen før der faktisk printes - skal nok være asynkront
+    this.print();
   }
 
-  /*print(): void {
-    // TODO ibn : lad det være for nu og få kommunikationen op at køre sammen med popup valg af kolonner
-    let printContents, popupWin;
-    printContents = document.getElementById('print-section').innerHTML;
-    popupWin = window.open('', '_blank', 'top=0,left=0,height=0,width=0');
+  print(): void {
+    const head = document.getElementsByTagName('head')[0].innerHTML;
+    const printContents = document.getElementById('print-section').innerHTML;
+    const popupWin = window.open('', '_blank', '');
     // popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-    popupWin.document.open();
     popupWin.document.write(`
       <html>
         <head>
-          <title>Print tab</title>
-          <style>
-          //........Customized style.......
-          </style>
+            ${head}
         </head>
-    <body onload="window.print();window.close()">${printContents}</body>
-      </html>`
-    );
+        <body>${printContents}</body>
+      </html>
+    `);
     popupWin.document.close();
-  }*/
+  }
+  // TODO ibn : ind igen, når færdig
+  // <body onload="window.print();window.close()">${printContents}</body>
 }

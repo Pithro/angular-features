@@ -1,14 +1,13 @@
-.doprint {
-  /* hide the printing component from @media screen */
-  display: none;
+@media screen {
+  .doprint {
+    /* hide the printing component from @media screen */
+    display: none;
+  }
 }
 
 @media print {
   .doprint {
     display: block;
   }
-
-  .noprint {
-    display: none;
-  }
 }
+

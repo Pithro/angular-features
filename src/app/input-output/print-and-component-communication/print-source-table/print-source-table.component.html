@@ -1,0 +1,26 @@
+<!-- put in some other stuff here and maybe style the table -->
+<p-calendar [(ngModel)]="value" [inline]="true"></p-calendar>
+<br><br>
+<p-table [columns]="tableData.column_headings" [value]="tableData.rows">
+  <ng-template pTemplate="caption">
+    {{tableData.caption}}
+  </ng-template>
+  <ng-template pTemplate="header" let-thecolumns>
+    <tr>
+      <th *ngFor="let col of thecolumns;">
+        {{col}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-thedata>
+    <tr>
+      <td *ngFor="let cell of thedata;">
+        {{cell}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Title" [(visible)]="display">
+  Content
+</p-dialog>
