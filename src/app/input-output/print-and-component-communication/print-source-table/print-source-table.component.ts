@@ -1,16 +1,18 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {IPrintDataDelegate, PrintService, TableData} from '../print.service';
-import {newArray} from '@angular/compiler/src/util';
+import {Component, OnInit} from '@angular/core';
+import {DataColumn, HeaderColumn, IPrintDataSupplierDelegate, PrintService, TableData} from '../print.service';
 
 @Component({
   selector: 'app-print-source-table',
   templateUrl: './print-source-table.component.html',
   styleUrls: ['./print-source-table.component.css']
 })
-export class PrintSourceTableComponent implements OnInit, IPrintDataDelegate {
+export class PrintSourceTableComponent implements OnInit, IPrintDataSupplierDelegate {
   value: Date;
-  tableData = new TableData();
   display = false;
+  // original table
+  tableData = new TableData();
+  // the table to print
+  selectedTableData: TableData = new TableData();
 
   constructor(public printService: PrintService) {
   }
@@ -18,42 +20,47 @@ export class PrintSourceTableComponent implements OnInit, IPrintDataDelegate {
   ngOnInit(): void {
     this.printService.registerPrintDataDelegate(this);
 
+    // initial table
     this.tableData.caption = 'Table title';
-    this.tableData.column_headings = ['Header 1', 'Header 2', 'Header 3'];
+    this.tableData.columnHeaders = [{id: '1', header: 'Header 1'}, {id: '2', header: 'Header 2'}, {id: '3', header: 'Header 3'}];
     this.tableData.rows = [
-      ['r1c1', 'r1c2', 'r1c3'],
-      ['r2c1', 'r2c2', 'r2c3'],
-      ['r3c1', 'r3c2', 'r3c3'],
+      // heading1, heading2, heading3
+      [{id: '1', data: 'r1c1'}, {id: '2', data: 'r1c2'}, {id: '3', data: 'r1c3'}],
+      [{id: '1', data: 'r2c1'}, {id: '2', data: 'r2c2'}, {id: '3', data: 'r2c3'}],
+      [{id: '1', data: 'r3c1'}, {id: '2', data: 'r3c2'}, {id: '3', data: 'r3c3'}],
     ];
   }
 
-  getTableData(): TableData {
-    // TODO ibn : this should trigger popup med ok/annuller knapper
-    // måske skal print servicen lytte på svar fra den her komponent før taget bliver lavet
+  startPrintProcess(): void {
+    console.log('in PrintSourceTableComponent.getTableData');
     this.display = true;
+  }
 
-    /*const o: TableData = new TableData();
-    o.caption = 'This is the caption';
+  onDialogClose(selectedCols: HeaderColumn[]) {
+    this.display = false;
 
-    o.heading.push('HEAD 1');
-    o.heading.push('HEAD 2');
+    if (selectedCols != null && selectedCols.length > 0) {
+      this.selectedTableData.columnHeaders = selectedCols;
+      this.selectedTableData.rows = new Array<Array<DataColumn>>();
 
-    o.row = new Array();
+      // find the matching rows to the id's selected in the dialog
+      for (const orgRow of this.tableData.rows) {
+        const newRow: Array<DataColumn> = new Array<DataColumn>();
+        this.selectedTableData.rows.push(newRow);
 
-    let r: string[] = [];
-    r.push('col 1');
-    r.push('col 2');
+        for (const orgCol of orgRow) {
+          for (const colHeader of this.selectedTableData.columnHeaders) {
+            if (colHeader.id === orgCol.id) {
+              const newColumn: DataColumn = new DataColumn();
+              newColumn.id = orgCol.id;
+              newColumn.data = orgCol.data;
+              newRow.push(newColumn);
+            }
+          }
+        }
+      }
 
-    o.row.push(r);
-
-    r =  [];
-    r.push('col 1');
-    r.push('col 2');
-
-    o.row.push(r);
-
-    return o;*/
-
-    return this.tableData;
+      this.printService.print(this.selectedTableData);
+    }
   }
 }

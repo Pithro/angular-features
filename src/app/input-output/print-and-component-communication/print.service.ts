@@ -1,30 +1,41 @@
 import {Injectable} from '@angular/core';
 
-export class TableData {
-  caption: string;
-  column_headings: string[] = [];
-  rows: Array<Array<string>>;
+export class HeaderColumn {
+  id: string;
+  header: string;
 }
 
-export interface IPrintDataDelegate {
-  getTableData(): TableData;
+export class DataColumn {
+  id: string;
+  data: string;
+}
+
+export class TableData {
+  caption: string;
+  columnHeaders: HeaderColumn[] = [];
+  rows: Array<Array<DataColumn>>;
+}
+
+export interface IPrintDataSupplierDelegate {
+  startPrintProcess(): void;
 }
 
 export interface IPrintDelegate {
   setTableData(tableData: TableData): void;
+  print(): void;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrintService {
-  private printDataDelegate: IPrintDataDelegate;
+  private printDataDelegate: IPrintDataSupplierDelegate;
   private printDelegate: IPrintDelegate;
-  private tableData: TableData;
 
-  constructor() { }
+  constructor() {
+  }
 
-  public registerPrintDataDelegate(delegate: IPrintDataDelegate) {
+  public registerPrintDataDelegate(delegate: IPrintDataSupplierDelegate) {
     this.printDataDelegate = delegate;
   }
 
@@ -33,11 +44,13 @@ export class PrintService {
   }
 
   public startPrintProcess(): void {
-    console.log('in startPrintProcess');
-    // get data from the source
-    this.tableData = this.printDataDelegate.getTableData();
-    this.printDelegate.setTableData(this.tableData);
+    this.printDataDelegate.startPrintProcess();
 
     return;
+  }
+
+  print(tableData: TableData) {
+    this.printDelegate.setTableData(tableData);
+    this.printDelegate.print();
   }
 }

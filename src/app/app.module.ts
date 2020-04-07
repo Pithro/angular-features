@@ -52,7 +52,8 @@ import { PrintPopupComponent } from './input-output/print-and-component-communic
 // tslint:disable-next-line:max-line-length
 import { PrintSourceTableComponent } from './input-output/print-and-component-communication/print-source-table/print-source-table.component';
 import {NgxPrintModule} from 'ngx-print';
-import {CalendarModule} from 'primeng';
+import {CalendarModule, CheckboxModule} from 'primeng';
+import { ColumnSelectionDialogComponent } from './input-output/print-and-component-communication/column-selection-dialog/column-selection-dialog.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import {CalendarModule} from 'primeng';
     PrintParentComponent,
     PrintPopupComponent,
     PrintSourceTableComponent,
+    ColumnSelectionDialogComponent,
   ],
   entryComponents: [Comp1Component, Comp2Component],
     imports: [
@@ -116,7 +118,8 @@ import {CalendarModule} from 'primeng';
         TableModule,
         DialogModule,
         NgxPrintModule,
-        CalendarModule
+        CalendarModule,
+        CheckboxModule
     ],
   providers: [],
   bootstrap: [AppComponent]

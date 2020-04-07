@@ -1,0 +1,15 @@
+<p-dialog [visible]="display" [style]="{width: '400px'}" [modal]="true" [dismissableMask]="true" [maximizable]="false"
+          (visibleChange)="onCancelClicked()" (onShow)="onShow()" appendTo="body" [draggable]="false">
+  <p-header>
+    <span class="dialog-header">Select columns to show in print</span>
+  </p-header>
+  <div *ngFor="let col of columns">
+    <p-checkbox class="ui-chkbox-label" name="colgroup" value="{{col.id}}" label="{{col.header}}" [(ngModel)]="selectedIds"></p-checkbox>
+  </div>
+  <p-footer>
+    <button type="button" pButton icon="ui-icon-close" [label]="'Cancel'" (click)="onCancelClicked()"
+            class="ui-button-secondary"></button>
+    <button type="submit" pButton icon="ui-icon-check" (click)="onSaveClicked()" [label]="'OK'"
+            class="ui-button-success"></button>
+  </p-footer>
+</p-dialog>
