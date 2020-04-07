@@ -32,7 +32,6 @@ export class PrintSourceTableComponent implements OnInit, IPrintDataSupplierDele
   }
 
   startPrintProcess(): void {
-    console.log('in PrintSourceTableComponent.getTableData');
     this.display = true;
   }
 
